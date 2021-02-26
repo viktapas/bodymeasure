@@ -8,7 +8,7 @@ import {RoutesConfig} from './commons/routeConfig';
 import {capitalizeLetter} from './commons/utility';
 import {FONT_SIZE} from './commons/appConfig';
 import Colors from './commons/colors';
-import {Splash, Home, Profile, History} from './src/screens';
+import {Splash, Home, Profile, History, OverviewDetails} from './src/screens';
 
 const Stack = createStackNavigator();
 const BottomTabsStack = createBottomTabNavigator();
@@ -21,6 +21,10 @@ function HomeStackScreen() {
         cardStyle: {backgroundColor: 'white'},
       }}>
       <Stack.Screen name={RoutesConfig.HOME.name} component={Home} />
+      <Stack.Screen
+        name={RoutesConfig.OVERVIEW_DETAILS.name}
+        component={OverviewDetails}
+      />
     </Stack.Navigator>
   );
 }

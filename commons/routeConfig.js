@@ -20,4 +20,11 @@ export const RoutesConfig = Object.freeze({
       fill: 'flash',
     },
   },
+  OVERVIEW_DETAILS: {
+    name: 'OVERVIEW_DETAILS',
+    iconName: {
+      outline: 'flash-outline',
+      fill: 'flash',
+    },
+  },
 });

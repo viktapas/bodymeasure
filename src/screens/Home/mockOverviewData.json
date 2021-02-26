@@ -1,0 +1,103 @@
+[
+  {
+    "label": "Upper body",
+    "records": [
+      {
+        "id": "alisdl3453",
+        "label": "Shoulder",
+        "icon": {
+          "name": "alarm-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "108 CM"
+      },
+      {
+        "id": "354r3f",
+        "label": "Biceps",
+        "icon": {
+          "name": "arrow-up-circle-outline",
+          "backgroundColor": "#FF4462"
+        },
+        "reading": "69 CM"
+      },
+      {
+        "id": "alisdl3a4rcw453",
+        "label": "Neck",
+        "icon": {
+          "name": "basket-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "47 CM"
+      },
+      {
+        "id": "cwrw4r",
+        "label": "Forearm",
+        "icon": {
+          "name": "bicycle-outline",
+          "backgroundColor": "#F4C31C"
+        },
+        "reading": "78 CM"
+      },
+      {
+        "id": "cq4rcrt",
+        "label": "Wrist",
+        "icon": {
+          "name": "file-tray-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "54 CM"
+      }
+    ]
+  },
+  {
+    "label": "Lower body",
+    "records": [
+      
+      {
+        "id": "c34t3",
+        "label": "Shoulder",
+        "icon": {
+          "name": "alarm-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "27 CM"
+      },
+      {
+        "id": "3g56",
+        "label": "Biceps",
+        "icon": {
+          "name": "arrow-up-circle-outline",
+          "backgroundColor": "#FF4462"
+        },
+        "reading": "43 CM"
+      },
+      {
+        "id": "cw4545",
+        "label": "Neck",
+        "icon": {
+          "name": "basket-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "120 CM"
+      },
+      {
+        "id": "b7u57",
+        "label": "Forearm",
+        "icon": {
+          "name": "bicycle-outline",
+          "backgroundColor": "#F4C31C"
+        },
+        "reading": "99 CM"
+      },
+      {
+        "id": "cv3475y",
+        "label": "Wrist",
+        "icon": {
+          "name": "file-tray-outline",
+          "backgroundColor": "#77E46C"
+        },
+        "reading": "32 CM"
+      }
+    ]
+  }
+]

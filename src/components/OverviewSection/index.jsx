@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { Btn, Txt } from '..'
 import styles from "./styles"
 
@@ -29,14 +29,18 @@ function ItemContainer({children}) {
     </View>
   )
 }
-function Item({children, label, icon = {}, reading}) {
+function Item({id, children, label, icon = {}, reading, onPress=()=>{}}) {
   const _icon = {
     color: 'white',
     backgroundColor: 'black',
     ...icon,
   }
+  const onPressHandler = (e) => {
+    const itemMeta = {id, label, icon, reading};
+    return onPress(itemMeta, e)
+  }
   return (
-    <View style={styles.Item}>
+    <TouchableOpacity style={styles.Item} onPress={onPressHandler}>
       <View style={[styles.ItemIcon, {backgroundColor: _icon.backgroundColor}]}><Ionicons name={_icon.name} size={28} color={_icon.color}/></View>
       <View style={styles.ItemContent}>
         <Txt.P style={styles.ItemContentLabel}>{label}</Txt.P>
@@ -44,7 +48,7 @@ function Item({children, label, icon = {}, reading}) {
         <Ionicons style={styles.ItemContentChevron} name={"chevron-forward"} size={22} color={Colors.LIGHT.GRAY}/>
       </View>
       {children}
-    </View>
+    </TouchableOpacity>
   )
 }
 
