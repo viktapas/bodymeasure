@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RoutesConfig} from './commons/routeConfig';
 import {capitalizeLetter} from './commons/utility';
 import {FONT_SIZE} from './commons/appConfig';
-import {Colors} from './commons/styles';
+import Colors from './commons/colors';
 import {Splash, Home, Profile, History} from './src/screens';
 
 const Stack = createStackNavigator();
@@ -15,7 +15,11 @@ const BottomTabsStack = createBottomTabNavigator();
 
 function HomeStackScreen() {
   return (
-    <Stack.Navigator screenOptions={{header: () => null}}>
+    <Stack.Navigator
+      screenOptions={{
+        header: () => null,
+        cardStyle: {backgroundColor: 'white'},
+      }}>
       <Stack.Screen name={RoutesConfig.HOME.name} component={Home} />
     </Stack.Navigator>
   );
@@ -23,7 +27,11 @@ function HomeStackScreen() {
 
 function ProfileStackScreen() {
   return (
-    <Stack.Navigator screenOptions={{header: () => null}}>
+    <Stack.Navigator
+      screenOptions={{
+        header: () => null,
+        cardStyle: {backgroundColor: 'white'},
+      }}>
       <Stack.Screen name={RoutesConfig.PROFILE.name} component={Profile} />
     </Stack.Navigator>
   );
@@ -31,7 +39,11 @@ function ProfileStackScreen() {
 
 function HistoryStackScreen() {
   return (
-    <Stack.Navigator screenOptions={{header: () => null}}>
+    <Stack.Navigator
+      screenOptions={{
+        header: () => null,
+        cardStyle: {backgroundColor: 'white'},
+      }}>
       <Stack.Screen name={RoutesConfig.HISTORY.name} component={History} />
     </Stack.Navigator>
   );
