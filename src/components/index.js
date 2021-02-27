@@ -3,3 +3,4 @@ export {default as SafeArea} from './SafeArea';
 export {default as Btn} from './Button';
 export {default as Txt} from './Text';
 export {default as OverviewSection} from './OverviewSection';
+export {default as Divider} from './Divider';

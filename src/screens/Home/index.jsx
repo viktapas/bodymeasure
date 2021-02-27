@@ -17,7 +17,7 @@ const Home = ({navigation}) => {
         <HomeHeader />
           {
             OverviewData.map(overview => (
-              <OverviewSection>
+              <OverviewSection key={overview.label}>
                 <OverviewSection.Header label={overview.label} />
                 <OverviewSection.ItemContainer>
                   {

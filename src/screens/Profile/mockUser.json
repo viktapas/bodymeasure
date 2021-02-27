@@ -1,0 +1,21 @@
+{
+  "id": "dkfjao4rlag94jf94jl",
+  "name": {
+    "firstName": "Vikas",
+    "middleName": null,
+    "lastName": "Kumar"
+  },
+  "age": 26,
+  "dob": 757382400000,
+  "weight": {
+    "unit": "KG",
+    "value": 69
+  },
+  "picture": {
+    "small": "",
+    "medium": "",
+    "large": ""
+  },
+  "gender": "male",
+  "joined": 1614509389000
+}
