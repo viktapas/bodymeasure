@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   Item: {
     // paddingTop: 10,
     flexDirection: 'row',
-    // alignItems: 'center',
+    alignItems: 'center',
   },
   ItemContent: {
     paddingHorizontal: 10,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   ItemContentChevron: {
     paddingTop: 18,
   },
-  ItemContentReading: {
+  ItemContentChildren: {
     paddingTop: 18,
     marginRight: 10,
   },

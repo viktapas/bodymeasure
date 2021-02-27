@@ -4,3 +4,4 @@ export {default as Btn} from './Button';
 export {default as Txt} from './Text';
 export {default as OverviewSection} from './OverviewSection';
 export {default as Divider} from './Divider';
+export {default as Menu} from './Menu';

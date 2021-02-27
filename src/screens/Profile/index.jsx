@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, Image, ScrollView } from 'react-native'
-import { Divider, SafeArea, Txt } from '../../components'
+import { View, Text, Image, ScrollView, Switch } from 'react-native'
+import { Divider, Menu, OverviewSection, SafeArea, Txt } from '../../components'
 import styles from './styles'
 import mockUser from "./mockUser.json"
 import Ionicons from "react-native-vector-icons/Ionicons"
@@ -14,6 +14,19 @@ const Profile = () => {
         <Divider/>
         <User/>
         <Divider/>
+        <Menu>
+          <Menu.Item id="dark-mode" label="Dark Mode" icon={{name: "moon-outline", backgroundColor: "#4a4a4a"}}>
+            <Switch value={false} onValueChange={(value) => {}} />
+          </Menu.Item>
+          <Menu.Item id="icloud-mode" label="iCloud Sync" icon={{name: "cloud-outline", backgroundColor: "#1A84FF"}}>
+            <Switch value={true} onValueChange={(value) => {}} />
+          </Menu.Item>
+          <Menu.Item id="measure-unit" label="Use Imperial Units" icon={{name: "flower-outline", backgroundColor: "#6C75E4"}}>
+            <Switch value={false} onValueChange={(value) => {}} />
+          </Menu.Item>
+          <Divider/>
+          <Menu.Item id="logout" label="Logout" labelStyle={{color: "#E46C6C"}} icon={{name: "power", backgroundColor: "#E46C6C"}} />
+        </Menu>
       </ScrollView>
     </SafeArea>
   )

@@ -29,7 +29,7 @@ function ItemContainer({children}) {
     </View>
   )
 }
-function Item({id, children, label, icon = {}, reading, onPress=()=>{}}) {
+function Item({id, children, label, icon = {}, reading, hideChevron, onPress=()=>{}}) {
   const _icon = {
     color: 'white',
     backgroundColor: 'black',
@@ -45,7 +45,7 @@ function Item({id, children, label, icon = {}, reading, onPress=()=>{}}) {
       <View style={styles.ItemContent}>
         <Txt.P style={styles.ItemContentLabel}>{label}</Txt.P>
         <Txt.P style={styles.ItemContentReading}>{reading}</Txt.P>
-        <Ionicons style={styles.ItemContentChevron} name={"chevron-forward"} size={22} color={Colors.LIGHT.GRAY}/>
+        {!hideChevron && <Ionicons style={styles.ItemContentChevron} name={"chevron-forward"} size={22} color={Colors.LIGHT.GRAY}/>}
       </View>
       {children}
     </TouchableOpacity>

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 10,
     flexDirection: 'row',
-    // alignItems: 'center',
+    alignItems: 'center',
     // justifyContent: 'space-between',
   },
   ProfileUserName: {
