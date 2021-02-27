@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { Btn, Txt } from '..'
+import Txt  from '../Text'
 import styles from "./styles"
 
 import Ionicons from "react-native-vector-icons/Ionicons"
@@ -14,14 +14,6 @@ const Menu = ({children}) => {
   )
 }
 
-// function Header({label}) {
-//   return (
-//     <View style={styles.Header}>
-//       <Txt.P style={styles.HeaderLabel}>{label}</Txt.P>
-//       <Btn style={styles.HeaderBtn}><Ionicons name="ios-add" size={24}/></Btn>
-//     </View>
-//   )
-// }
 function Container({children}) {
   return (
     <View style={styles.ItemContainer}>
@@ -47,7 +39,6 @@ function Item({id, children, label, labelStyle, icon = {}, type="btn", showChevr
   )
 }
 
-// Menu.Header = Header;
 Menu.Container = Container;
 Menu.Item = Item;
 

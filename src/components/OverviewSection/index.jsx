@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { Btn, Txt } from '..'
+import Txt  from '../Text'
+import Btn  from '../Button'
 import styles from "./styles"
 
 import Ionicons from "react-native-vector-icons/Ionicons"

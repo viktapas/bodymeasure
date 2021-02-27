@@ -7,7 +7,6 @@ import { RoutesConfig } from '../../../commons/routeConfig'
 import OverviewData from "./mockOverviewData.json"
 
 const Home = ({navigation}) => {
-  console.log('navigation :>> ', navigation);
   const onClickOverviewItemHandler = (overviewItemMeta, e)  => {
     navigation.navigate(RoutesConfig.OVERVIEW_DETAILS.name, {overviewItemMeta: overviewItemMeta});
   }
