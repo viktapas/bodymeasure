@@ -27,4 +27,11 @@ export const RoutesConfig = Object.freeze({
       fill: 'flash',
     },
   },
+  ADD_MEASURE: {
+    name: 'ADD_MEASURE',
+    iconName: {
+      outline: 'add-circle-outline',
+      fill: 'add-circle',
+    },
+  },
 });

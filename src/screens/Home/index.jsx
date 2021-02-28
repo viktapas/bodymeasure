@@ -8,12 +8,15 @@ import OverviewData from "./mockOverviewData.json"
 
 const Home = ({navigation}) => {
   const onClickOverviewItemHandler = (overviewItemMeta, e)  => {
-    navigation.navigate(RoutesConfig.OVERVIEW_DETAILS.name, {overviewItemMeta: overviewItemMeta});
+    return navigation.navigate(RoutesConfig.OVERVIEW_DETAILS.name, {overviewItemMeta: overviewItemMeta});
+  }
+  const openAddMeasure = () => {
+    return navigation.navigate(RoutesConfig.ADD_MEASURE.name);
   }
   return (
     <SafeArea>
       <ScrollView>
-        <HomeHeader />
+        <HomeHeader onPressAdd={openAddMeasure}/>
           {
             OverviewData.map(overview => (
               <OverviewSection key={overview.label}>
@@ -34,14 +37,14 @@ const Home = ({navigation}) => {
   )
 }
 
-function HomeHeader({ }) {
+function HomeHeader({ onPressAdd }) {
   return (
     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 15, paddingVertical: 30 }}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Image source={require('../../../static/images/hero-logo.png')} width={50} height={50} style={{ width: 30, height: 30, marginRight: 10 }} />
         <Txt.H1 style={{ fontWeight: 'bold' }}>bodymeasure</Txt.H1>
       </View>
-      <Btn><Ionicons name={"ios-add-circle"} size={40} /></Btn>
+      <Btn onPress={onPressAdd}><Ionicons name={"ios-add-circle"} size={40} /></Btn>
     </View>
   )
 }
