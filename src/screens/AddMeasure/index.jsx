@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const AddMeasure = () => {
+const AddMeasure = (props) => {
   return (
     <View>
       <Text>Add Measure</Text>

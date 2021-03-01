@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RoutesConfig} from './commons/routeConfig';
@@ -17,68 +17,69 @@ import {
   AddMeasure,
 } from './src/screens';
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
+const RootStack = createStackNavigator();
 const BottomTabsStack = createBottomTabNavigator();
 
 function HomeStackScreen() {
   return (
-    <Stack.Navigator
+    <MainStack.Navigator
       screenOptions={{
         header: () => null,
         cardStyle: {backgroundColor: 'white'},
-        cardOverlayEnabled: true,
-        cardStyleInterpolator: function ({current: {progress}}) {
-          return {
-            cardStyle: {
-              opacity: progress.interpolate({
-                inputRange: [0, 0.5, 0.9, 1],
-                outputRange: [0, 0.25, 0.7, 1],
-              }),
-            },
-            overlayStyle: {
-              opacity: progress.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, 0.5],
-                extrapolate: 'clamp',
-              }),
-            },
-          };
-        },
       }}>
-      <Stack.Screen name={RoutesConfig.HOME.name} component={Home} />
-      <Stack.Screen
+      <MainStack.Screen name={RoutesConfig.HOME.name} component={Home} />
+      <MainStack.Screen
         name={RoutesConfig.OVERVIEW_DETAILS.name}
         component={OverviewDetails}
       />
-      <Stack.Screen
-        name={RoutesConfig.ADD_MEASURE.name}
-        component={AddMeasure}
-      />
-    </Stack.Navigator>
+    </MainStack.Navigator>
   );
 }
 
 function ProfileStackScreen() {
   return (
-    <Stack.Navigator
+    <MainStack.Navigator
       screenOptions={{
         header: () => null,
         cardStyle: {backgroundColor: 'white'},
       }}>
-      <Stack.Screen name={RoutesConfig.PROFILE.name} component={Profile} />
-    </Stack.Navigator>
+      <MainStack.Screen name={RoutesConfig.PROFILE.name} component={Profile} />
+    </MainStack.Navigator>
   );
 }
 
 function HistoryStackScreen() {
   return (
-    <Stack.Navigator
+    <MainStack.Navigator
       screenOptions={{
         header: () => null,
         cardStyle: {backgroundColor: 'white'},
       }}>
-      <Stack.Screen name={RoutesConfig.HISTORY.name} component={History} />
-    </Stack.Navigator>
+      <MainStack.Screen name={RoutesConfig.HISTORY.name} component={History} />
+    </MainStack.Navigator>
+  );
+}
+
+function RootStackScreen() {
+  return (
+    <RootStack.Navigator
+      screenOptions={{
+        header: () => null,
+        gestureEnabled: true,
+        cardOverlayEnabled: true,
+        ...TransitionPresets.ModalPresentationIOS,
+      }}
+      mode={'modal'}>
+      <RootStack.Screen
+        name={RoutesConfig.HOME.name}
+        component={HomeStackScreen}
+      />
+      <RootStack.Screen
+        name={RoutesConfig.ADD_MEASURE.name}
+        component={AddMeasure}
+      />
+    </RootStack.Navigator>
   );
 }
 
@@ -118,7 +119,7 @@ const App = () => {
         }}>
         <BottomTabsStack.Screen
           name={RoutesConfig.HOME.name}
-          component={HomeStackScreen}
+          component={RootStackScreen}
           options={{tabBarLabel: capitalizeLetter(RoutesConfig.HOME.name)}}
         />
         <BottomTabsStack.Screen
