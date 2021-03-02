@@ -16,6 +16,7 @@ import {
   OverviewDetails,
   AddMeasure,
 } from './src/screens';
+import {BottomTabBarVisibleContext} from './src/globalContexts';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -85,6 +86,7 @@ function RootStackScreen() {
 
 const App = () => {
   const [state, setState] = React.useState({loading: true, userToken: null});
+  const [tabBarVisible, setTabBarVisible] = React.useState(true);
   React.useEffect(() => {
     setTimeout(() => {
       setState((prevState) => ({
@@ -100,40 +102,53 @@ const App = () => {
   return state.loading ? (
     <Splash />
   ) : (
-    <NavigationContainer>
-      <BottomTabsStack.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            const iconName = focused
-              ? RoutesConfig[route.name].iconName.fill
-              : RoutesConfig[route.name].iconName.outline;
-            return (
-              <Ionicons name={iconName} size={FONT_SIZE.MEDIUM} color={color} />
-            );
-          },
-          // tabBarBadge: route.name === RoutesConfig.PROFILE.name ? 3 : null,
-        })}
-        tabBarOptions={{
-          activeTintColor: Colors.LIGHT.PRIMARY,
-          inactiveTintColor: Colors.LIGHT.GRAY,
-        }}>
-        <BottomTabsStack.Screen
-          name={RoutesConfig.HOME.name}
-          component={RootStackScreen}
-          options={{tabBarLabel: capitalizeLetter(RoutesConfig.HOME.name)}}
-        />
-        <BottomTabsStack.Screen
-          name={RoutesConfig.HISTORY.name}
-          component={HistoryStackScreen}
-          options={{tabBarLabel: capitalizeLetter(RoutesConfig.HISTORY.name)}}
-        />
-        <BottomTabsStack.Screen
-          name={RoutesConfig.PROFILE.name}
-          component={ProfileStackScreen}
-          options={{tabBarLabel: capitalizeLetter(RoutesConfig.PROFILE.name)}}
-        />
-      </BottomTabsStack.Navigator>
-    </NavigationContainer>
+    <BottomTabBarVisibleContext.Provider
+      value={{
+        tabBarVisible: tabBarVisible,
+        setTabBarVisible: setTabBarVisible,
+      }}>
+      <NavigationContainer>
+        <BottomTabsStack.Navigator
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+              const iconName = focused
+                ? RoutesConfig[route.name].iconName.fill
+                : RoutesConfig[route.name].iconName.outline;
+              return (
+                <Ionicons
+                  name={iconName}
+                  size={FONT_SIZE.MEDIUM}
+                  color={color}
+                />
+              );
+            },
+            // tabBarBadge: route.name === RoutesConfig.PROFILE.name ? 3 : null,
+          })}
+          tabBarOptions={{
+            activeTintColor: Colors.LIGHT.PRIMARY,
+            inactiveTintColor: Colors.LIGHT.GRAY,
+          }}>
+          <BottomTabsStack.Screen
+            name={RoutesConfig.HOME.name}
+            component={RootStackScreen}
+            options={{
+              tabBarLabel: capitalizeLetter(RoutesConfig.HOME.name),
+              tabBarVisible: tabBarVisible,
+            }}
+          />
+          <BottomTabsStack.Screen
+            name={RoutesConfig.HISTORY.name}
+            component={HistoryStackScreen}
+            options={{tabBarLabel: capitalizeLetter(RoutesConfig.HISTORY.name)}}
+          />
+          <BottomTabsStack.Screen
+            name={RoutesConfig.PROFILE.name}
+            component={ProfileStackScreen}
+            options={{tabBarLabel: capitalizeLetter(RoutesConfig.PROFILE.name)}}
+          />
+        </BottomTabsStack.Navigator>
+      </NavigationContainer>
+    </BottomTabBarVisibleContext.Provider>
   );
 };
 
