@@ -67,7 +67,7 @@ function RootStackScreen() {
     <RootStack.Navigator
       screenOptions={{
         header: () => null,
-        gestureEnabled: true,
+        gestureEnabled: false,
         cardOverlayEnabled: true,
         ...TransitionPresets.ModalPresentationIOS,
       }}

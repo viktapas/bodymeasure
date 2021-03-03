@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { BottomTabBarVisibleContext } from '../../globalContexts'
+import styles from "./styles"
 
 const AddMeasure = (props) => {
   const {tabBarVisible, setTabBarVisible} = React.useContext(BottomTabBarVisibleContext);
@@ -11,9 +12,19 @@ const AddMeasure = (props) => {
     }
   }, [])
 
+  const closeModal = () => {
+    const {navigation} = props;
+    navigation.goBack();
+    return true;
+  }
+
   return (
-    <View>
-      <Text>Add Measure</Text>
+    <View style={styles.root}>
+      <View style={styles.header}>
+        <Button title="Cancel" onPress={closeModal}/>
+        <Text style={{flex: 1}}>Record your body</Text>
+        <View/>
+      </View>
     </View>
   )
 }
