@@ -21,9 +21,9 @@ const AddMeasure = (props) => {
   return (
     <View style={styles.root}>
       <View style={styles.header}>
-        <Button title="Cancel" onPress={closeModal}/>
-        <Text style={{flex: 1}}>Record your body</Text>
-        <View/>
+        <Button style={styles.headerLeftBtn} title="Cancel" onPress={closeModal}/>
+        <Text style={styles.headerTitle}>Record your body Record your body Record your body Record your body</Text>
+        <View style={styles.headerRightBtn}/>
       </View>
     </View>
   )

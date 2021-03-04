@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.LIGHT.BORDER,
     borderBottomWidth: 1,
   },
+  headerLeftBtn: {marginRight: 'auto'},
+  headerRightBtn: {marginLeft: 'auto'},
+  headerTitle: {
+    marginHorizontal: 'auto',
+    textAlign: 'center',
+    flex: 1,
+  },
 });
 
 export default styles;
